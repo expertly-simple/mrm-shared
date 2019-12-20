@@ -1,6 +1,5 @@
+import { addArrayProperty, setScripts } from "./helpers";
 import { install, json, lines, packageJson } from "mrm-core";
-
-import { addArrayProperty } from "./helpers";
 
 export function configureCommonNpmPackages() {
   const commonNpm = ["cross-conf-env", "npm-run-all", "dev-norms", "rimraf"];
@@ -79,3 +78,41 @@ export function configurePrettier() {
       .save();
   }
 }
+
+export function configurePRTemplate() {
+    if(!lines('pull_request_template.md').exists) {
+      lines('pull_request_template.md').set([
+        '# Feature/Change Description',
+        '',
+        '_Describe changes made here, link to any issue that is addressed_',
+        '',
+        '# Developer Checklist',
+        '',
+        '- [ ] Updated documentation or README.md',
+        '- [ ] If adding new feature(s), added and ran unit tests',
+        '- [ ] If create new release, bumped version number',
+        '- [ ] Ran `npm run style:fix` for code style enforcement',
+        '- [ ] Ran `npm run lint:fix` for linting',
+        '- [ ] Ran `npm audit` to discover vulnerabilities',
+      ]
+      )
+    }
+  }
+  
+  export function configureInitEnv() {
+    install(['init-dev-env'])
+  
+    if(!lines('example.env').exists()) {
+      lines('example.env').set([
+        '/* Document required environment variables for .env file here',
+        '   Execute npm run init:env to generate a .env file from example */',
+        'MY_VAR=defaultValue'
+      ])
+    }
+    
+    const pkg = packageJson();
+    setScripts(pkg, {
+      "init:env": "init-dev-env generate-dot-env example.env -f"
+    })
+  }
+  
