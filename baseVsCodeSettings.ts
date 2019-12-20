@@ -39,4 +39,4 @@ export const BaseVsCodeSettings = {
     "gitlens.menus": {
       editorGroup: false
     },
-  }
+  } as any
