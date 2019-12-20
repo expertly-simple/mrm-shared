@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "pretest": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.3"
+  }
+}
