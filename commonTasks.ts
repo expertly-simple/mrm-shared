@@ -78,7 +78,7 @@ export function configurePrettier() {
 }
 
 export function configurePRTemplate() {
-  if (!lines('pull_request_template.md').exists) {
+  if (!lines('pull_request_template.md').exists()) {
     lines('pull_request_template.md')
       .set([
         '# Feature/Change Description',
@@ -104,9 +104,9 @@ export function configureInitEnv() {
   if (!lines('example.env').exists()) {
     lines('example.env')
       .set([
-        '/* Document required environment variables for .env file here',
-        '   Execute npm run init:env to generate a .env file from example',
-        '   Ensure .env file is included in .gitignore */',
+        '# Document required environment variables for .env file here',
+        '# Execute npm run init:env to generate a .env file from example',
+        '# Ensure .env file is included in .gitignore',
         'MY_VAR=defaultValue',
       ])
       .save()
