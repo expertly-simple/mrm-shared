@@ -2,9 +2,11 @@
   "scripts": {
     "pretest": "tsc --noEmit"
   },
+  "peerDependencies": {
+    "mrm-core": "^4.0.0"
+  },
   "devDependencies": {
     "@types/node": "^12.12.21",
-    "mrm-core": "^4.0.2",
     "typescript": "^3.7.3"
   }
 }

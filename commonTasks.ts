@@ -105,7 +105,8 @@ export function configurePRTemplate() {
     if(!lines('example.env').exists()) {
       lines('example.env').set([
         '/* Document required environment variables for .env file here',
-        '   Execute npm run init:env to generate a .env file from example */',
+        '   Execute npm run init:env to generate a .env file from example',
+        '   Ensure .env file is included in .gitignore */',
         'MY_VAR=defaultValue'
       ])
     }
