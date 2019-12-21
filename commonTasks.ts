@@ -117,6 +117,6 @@ export function configureInitEnv() {
   })
 
   lines('.gitignore')
-    .set(['.env'])
+    .add(['.env'])
     .save()
 }
