@@ -23,7 +23,7 @@ export function setScript(pkg: PackageJson, name: string, script: string) {
 }
 
 export function setScripts(pkg: PackageJson, scripts: object) {
-  for (let [key, value] of Object.entries(scripts)) {
+  for (const [key, value] of Object.entries(scripts)) {
     pkg.setScript(key, value)
   }
   pkg.save()
