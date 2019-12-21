@@ -106,7 +106,6 @@ export function configureInitEnv() {
       .set([
         '# Document required environment variables for .env file here',
         '# Execute npm run init:env to generate a .env file from example',
-        '# Ensure .env file is included in .gitignore',
         'MY_VAR=defaultValue',
       ])
       .save()
@@ -116,4 +115,8 @@ export function configureInitEnv() {
   setScripts(pkg, {
     'init:env': 'init-dev-env generate-dot-env example.env -f',
   })
+
+  lines('.gitignore')
+    .set(['.env'])
+    .save()
 }
