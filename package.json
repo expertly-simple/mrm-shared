@@ -3,10 +3,10 @@
     "pretest": "tsc --noEmit"
   },
   "peerDependencies": {
-    "mrm-core": "^4.0.0"
+    "mrm-core": "^6.1.2"
   },
   "devDependencies": {
-    "@types/node": "^12.12.21",
-    "typescript": "^3.7.3"
+    "@types/node": "^16.4.10",
+    "typescript": "^4.3.5"
   }
 }
